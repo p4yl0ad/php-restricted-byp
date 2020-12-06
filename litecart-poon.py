@@ -95,9 +95,9 @@ class loop(Cmd):
     prompt="ayylmao > "
     def default(self, params):
         cmd_response = getfuktm8(params)
-        print(response)
+        print(cmd_response)
 
-    def getfuktm8(cmd):
+    def getfuktm8(self, cmd_response):
         target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd
         cmd_response = requests.get(target)
         try:
