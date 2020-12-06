@@ -1,4 +1,3 @@
-└─$ cat litecart-poon.py 
 # Exploit Title: LiteCart 2.1.2 - Arbitrary File Upload
 # Date: 2018-08-27
 # Exploit Author: Haboob Team
