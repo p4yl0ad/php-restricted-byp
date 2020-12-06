@@ -94,7 +94,7 @@ else:
 class loop(Cmd):
     prompt="ayylmao > "
     def default(self, params):
-        cmd_response = loop.getfuktm8(params)
+        cmd_response = self.getfuktm8(params)
         print(cmd_response)
 
     def getfuktm8(self, cmd_response):
